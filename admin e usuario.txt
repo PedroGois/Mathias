@@ -1,0 +1,7 @@
+Administradores :
+login: Gois / Matheus / mateus
+senhas: pedrogois / matheusdias / mateusmatias
+
+Usuário: 
+login: jubi
+senha: jubi
