@@ -18,9 +18,9 @@ function pegarProdutoPorId($CodProduto) {
     return $produto;
 }
 
-function adicionarProduto($NomeProd, $Descricao, $Preco) {
-    $sql = "INSERT INTO produto (Preco, NomeProd, Descricao) 
-            VALUES ('$Preco', '$NomeProd', '$Descricao');";
+function adicionarProduto($NomeProd, $Descricao, $Preco, $diretorio_imagem) {
+    $sql = "INSERT INTO produto (Preco, NomeProd, Descricao, Imagem) 
+            VALUES ('$Preco', '$NomeProd', '$Descricao', '$diretorio_imagem');";
     $resultado = mysqli_query($cnx = conn(), $sql);
     if(!$resultado) { die('Erro ao cadastrar produto' . mysqli_error($cnx)); }
     return 'Produto cadastrado com sucesso!';

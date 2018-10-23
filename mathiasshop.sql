@@ -1,8 +1,8 @@
--- MySQL dump 10.16  Distrib 10.1.30-MariaDB, for Win32 (AMD64)
+-- MySQL dump 10.13  Distrib 5.7.14, for Win64 (x86_64)
 --
 -- Host: localhost    Database: mathiasshop
 -- ------------------------------------------------------
--- Server version	10.1.30-MariaDB
+-- Server version	5.7.14
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -26,7 +26,7 @@ CREATE TABLE `categoria` (
   `CodCategoria` int(11) NOT NULL AUTO_INCREMENT,
   `NomeCategoria` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`CodCategoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -79,6 +79,7 @@ CREATE TABLE `produto` (
   `Preco` int(11) DEFAULT NULL,
   `NomeProd` varchar(60) DEFAULT NULL,
   `Descricao` varchar(60) DEFAULT NULL,
+  `Imagem` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`CodProduto`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -89,7 +90,7 @@ CREATE TABLE `produto` (
 
 LOCK TABLES `produto` WRITE;
 /*!40000 ALTER TABLE `produto` DISABLE KEYS */;
-INSERT INTO `produto` VALUES (1,0,'PÃ£o ','batata'),(2,12,'Lucas','ajudante de web'),(3,12,'Monitor','sujo'),(4,23,'cadeira','quebrada'),(5,50,'carteira','roubada'),(6,100,'celular','achado'),(7,45,'par de tenis','rasgados'),(8,12,'Garrafa de agua','vazia'),(9,34,'Fisica','dificil'),(10,123,'Fichamento','pronto');
+INSERT INTO `produto` VALUES (1,0,'PÃ£o ','batata',NULL),(4,23,'cadeira','quebrada',NULL),(5,50,'carteira','roubada',NULL),(6,100,'celular','achado',NULL),(7,45,'par de tenis','rasgados',NULL),(8,12,'Garrafa de agua','vazia',NULL),(9,34,'Fisica','dificil',NULL),(10,123,'Fichamento','pronto',NULL);
 /*!40000 ALTER TABLE `produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,7 +117,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'matheus','matheus@gmail.com','matheusdias','admin'),(2,'Mateus','Mateus@gmail.com','mateusmatias','admin'),(3,'Gois','Gois@gmail.com','pedrogois','admin'),(5,'jubi','jubi@jubi.com','jubi','user');
+INSERT INTO `usuario` VALUES (1,'matheus','matheus@gmail.com','matheusdias','admin'),(2,'Mateus','Mateus@gmail.com','mateusmatias','admin'),(3,'Gois','Gois@gmail.com','pedrogois','admin');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -129,4 +130,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-09-25 22:44:24
+-- Dump completed on 2018-10-23 12:27:57

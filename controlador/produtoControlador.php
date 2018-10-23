@@ -1,5 +1,5 @@
 <?php
-
+require "servicos/uploadImagemServico.php";
 require "modelo/produtoModelo.php";
 /** anon */
 function index() {
@@ -10,7 +10,12 @@ function index() {
 function adicionar() {
     if (ehPost()) {
         extract($_POST);
-        alert(adicionarProduto($nome, $descricao, $preco));
+        $imagem_name = $_FILES["imagemProduto"]["name"];
+        $imagem_tmp = $_FILES["imagemProduto"]["tmp_name"];
+
+        $diretorio_imagem = uploadImagem($imagem_name, $imagem_tmp);
+
+        alert(adicionarProduto($nome, $descricao, $preco, $diretorio_imagem));
         redirecionar("produto/index");
     } else {
         exibir("produto/formulario");
