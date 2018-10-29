@@ -10,6 +10,8 @@
 
     <li><a href="./carrinho">Carrinho</a></li>
 
+    <li><a href="./pedido">Pedido</a></li>
+
     <li><a href="./categoria">Categoria</a></li>
 
     <?php if (isset($_SESSION["auth"])) { ?>

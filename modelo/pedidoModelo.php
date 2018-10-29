@@ -7,7 +7,7 @@ function pegarTodosPedidos() {
     while ($linha = mysqli_fetch_array($resultado)) {
         $pedidos[] = $linha;
     }
-    return $produtos;
+    return $pedidos;
 }
 
 function pegarPedidoPorId($CodProduto) {
@@ -17,9 +17,9 @@ function pegarPedidoPorId($CodProduto) {
     return $produto;
 }
 
-function adicionarPedido($NomeProd, $Descricao, $Preco) {
-    $sql = "INSERT INTO pedido (Preco, NomeProd, Quantpedido) 
-            VALUES ('$Preco', '$NomeProd', '$Descricao');";
+function adicionarPedido($total) {
+    $sql = "INSERT INTO pedido (PrecoTotal) 
+            VALUES ('$total');";
     $resultado = mysqli_query($cnx = conn(), $sql);
     if(!$resultado) { die('Erro ao cadastrar pedido' . mysqli_error($cnx)); }
     return 'Pedido cadastrado com sucesso!';

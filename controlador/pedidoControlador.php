@@ -7,14 +7,9 @@ function index() {
     exibir("pedido/listar", $dados);
 }
 /** user */
-function adicionar() {
-    if (ehPost()) {
-        extract($_POST);
-        alert(adicionarPedido($nome, $descricao, $preco));
+function comprar($total) {
+        alert(adicionarPedido($total));
         redirecionar("pedido/index");
-    } else {
-        exibir("pedido/formulario");
-    }
 }
 /** user */
 function deletar($id) {

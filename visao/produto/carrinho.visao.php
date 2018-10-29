@@ -19,7 +19,6 @@
         <td><?=$produto['NomeProd']?></td>
         <td><?=$produto['Preco']?></td>
         <?= 
-
         $total=$total + $produto['Preco'];
         ?>
         <td><a href="./carrinho/deletar/<?=$produto['CodProduto']?>" class="btn btn-danger">del</a></td>
@@ -37,6 +36,11 @@
    if (isset($carrinho)) {
 
    echo "O Total e da sua compra em reais é: ". $total;
+    $pedido["PrecoTotal"]=$total;
+    ?>
+    <a href="./pedido/comprar/<?=$pedido['PrecoTotal']?>" class="btn btn-danger">Comprar</a>
+<?php  
 }
-   ?>
+    ?>
 
+   

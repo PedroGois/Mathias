@@ -55,7 +55,7 @@ CREATE TABLE `pedido` (
   KEY `IdUsuario` (`IdUsuario`),
   CONSTRAINT `pedido_ibfk_1` FOREIGN KEY (`CodProduto`) REFERENCES `produto` (`CodProduto`),
   CONSTRAINT `pedido_ibfk_2` FOREIGN KEY (`IdUsuario`) REFERENCES `usuario` (`IdUsuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,7 +64,37 @@ CREATE TABLE `pedido` (
 
 LOCK TABLES `pedido` WRITE;
 /*!40000 ALTER TABLE `pedido` DISABLE KEYS */;
+INSERT INTO `pedido` VALUES (1,387,NULL,NULL);
 /*!40000 ALTER TABLE `pedido` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pedprod`
+--
+
+DROP TABLE IF EXISTS `pedprod`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pedprod` (
+  `CodPedProd` int(11) NOT NULL AUTO_INCREMENT,
+  `Preco` int(11) DEFAULT NULL,
+  `CodProduto` int(11) NOT NULL,
+  `CodPedido` int(11) NOT NULL,
+  PRIMARY KEY (`CodPedProd`),
+  KEY `CodProduto` (`CodProduto`),
+  KEY `CodPedido` (`CodPedido`),
+  CONSTRAINT `pedprod_ibfk_1` FOREIGN KEY (`CodProduto`) REFERENCES `produto` (`CodProduto`),
+  CONSTRAINT `pedprod_ibfk_2` FOREIGN KEY (`CodPedido`) REFERENCES `pedido` (`CodPedido`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pedprod`
+--
+
+LOCK TABLES `pedprod` WRITE;
+/*!40000 ALTER TABLE `pedprod` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pedprod` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -108,7 +138,7 @@ CREATE TABLE `usuario` (
   `Senha` varchar(60) DEFAULT NULL,
   `TipoUsuario` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`IdUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -117,7 +147,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'matheus','matheus@gmail.com','matheusdias','admin'),(2,'Mateus','Mateus@gmail.com','mateusmatias','admin'),(3,'Gois','Gois@gmail.com','pedrogois','admin');
+INSERT INTO `usuario` VALUES (1,'matheus','matheus@gmail.com','matheusdias','admin'),(2,'Mateus','Mateus@gmail.com','mateusmatias','admin'),(3,'Gois','Gois@gmail.com','pedrogois','admin'),(6,'dhdsfhzsa','mateusmatias10@live.com','mateus10','user'),(7,'gois','gois','123asd','user');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -130,4 +160,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-23 12:27:57
+-- Dump completed on 2018-10-29 10:38:38
