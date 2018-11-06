@@ -1,5 +1,5 @@
 <?php
-require_once ("bibliotecas/auth.php");
+
 require "modelo/pedidoModelo.php";
 /** user */
 function index() {
@@ -8,8 +8,7 @@ function index() {
 }
 /** user */
 function comprar($total) {
-        $idusuario = authGetUserId();
-        alert(adicionarPedido($total, $idusuario));
+        alert(adicionarPedido($total));
         redirecionar("pedido/index");
 }
 /** user */

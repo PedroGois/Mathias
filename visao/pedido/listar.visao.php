@@ -5,16 +5,14 @@
     <thead>
         <tr>
             <th>CodPedido</th>
-            <th>Preco</th>
-            <th>IDusuario</th>
-            <th>View</th>
+            <th>PRECO</th>
+            <th>VIEW</th>
         </tr>
     </thead>
     <?php foreach ($pedidos as $pedido): ?>
     <tr>
         <td><?=$pedido['CodPedido']?></td>        
         <td><?=$pedido['PrecoTotal']?></td>
-        <td><?=$pedido['IdUsuario']?></td>
         <td><a href="./pedido/visualizar/<?=$pedido['CodPedido']?>" class="btn btn-secondary">view</a></td>
     </tr>
     <?php endforeach; ?>
