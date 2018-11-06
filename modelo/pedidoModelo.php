@@ -17,9 +17,9 @@ function pegarPedidoPorId($CodProduto) {
     return $produto;
 }
 
-function adicionarPedido($total) {
-    $sql = "INSERT INTO pedido (PrecoTotal) 
-            VALUES ('$total');";
+function adicionarPedido($total, $idUsuario) {
+    $sql = "INSERT INTO pedido (PrecoTotal, IdUsuario) 
+            VALUES ('$total', '$idUsuario');";
     $resultado = mysqli_query($cnx = conn(), $sql);
     if(!$resultado) { die('Erro ao cadastrar pedido' . mysqli_error($cnx)); }
     return 'Pedido cadastrado com sucesso!';

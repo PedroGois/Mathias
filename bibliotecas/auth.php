@@ -36,3 +36,9 @@ function authGetUserRole() {
         return $_SESSION["auth"]["role"];
     }
 }
+
+function authGetUserId() {
+    if (authIsLoggedIn()) {
+        return $_SESSION["auth"]["id"];
+    }
+}

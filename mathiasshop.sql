@@ -49,11 +49,8 @@ CREATE TABLE `pedido` (
   `CodPedido` int(11) NOT NULL AUTO_INCREMENT,
   `PrecoTotal` int(11) DEFAULT NULL,
   `IdUsuario` int(11) DEFAULT NULL,
-  `CodProduto` int(11) DEFAULT NULL,
   PRIMARY KEY (`CodPedido`),
-  KEY `CodProduto` (`CodProduto`),
   KEY `IdUsuario` (`IdUsuario`),
-  CONSTRAINT `pedido_ibfk_1` FOREIGN KEY (`CodProduto`) REFERENCES `produto` (`CodProduto`),
   CONSTRAINT `pedido_ibfk_2` FOREIGN KEY (`IdUsuario`) REFERENCES `usuario` (`IdUsuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
