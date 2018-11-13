@@ -12,6 +12,7 @@
     <?php 
     if(isset($carrinho)) {
         $total=0;
+        $bruto=0;
         foreach ($carrinho as $produto){ 
     ?>
     <tr>
@@ -19,7 +20,7 @@
         <td><?=$produto['NomeProd']?></td>
         <td><?=$produto['Preco']?></td>
         <?= 
-        $total=$total + $produto['Preco'];
+        $bruto=$bruto + $produto['Preco'];
         ?>
         <td><a href="./carrinho/deletar/<?=$produto['CodProduto']?>" class="btn btn-danger">del</a></td>
     </tr>
@@ -32,15 +33,24 @@
     ?>
 </table>
     <br><br>
+
+<form method="POST" action="./cupom/Calcularcupom/">
+    
+    <div class="form-group">
+        <label for="cupom">Cupom</label>
+        <input id="cupom" class="form-control" type="text" name="copum">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Usar</button>
+
+</form>
+
    <?php
    if (isset($carrinho)) {
-
-   echo "O Total e da sua compra em reais é: ". $total;
-    $pedido["PrecoTotal"]=$total;
+            echo "O Total e da sua compra em reais é: ". $total;
+            $pedido["PrecoTotal"]=$total;
     ?>
     <a href="./pedido/comprar/<?=$pedido['PrecoTotal']?>" class="btn btn-danger">Comprar</a>
 <?php  
 }
     ?>
-
-   

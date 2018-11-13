@@ -71,6 +71,18 @@ UNLOCK TABLES;
 --
 -- Table structure for table `pedprod`
 --
+DROP TABLE IF EXISTS `cupom`;
+CREATE TABLE cupom (
+  `Idcupom` int(11) NOT NULL AUTO_INCREMENT,
+  `NomeCupom` varchar(100) NOT NULL,
+  `Desconto` int(11) NOT NULL,
+  PRIMARY KEY (`Idcupom`)
+) ENGINE=innodb;
+
+
+INSERT INTO `cupom` VALUES (1,'Cupom Abertura',20),(2,'Sem idéia',5);
+
+UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `pedprod`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
