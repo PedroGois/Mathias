@@ -34,18 +34,22 @@
 </table>
     <br><br>
 
-<form method="POST" action="./cupom/Calcularcupom/">
+<form method="POST" action="">
     
     <div class="form-group">
         <label for="cupom">Cupom</label>
         <input id="cupom" class="form-control" type="text" name="copum">
     </div>
 
-    <button type="submit" class="btn btn-primary">Usar</button>
+    <input type="submit" name="cupom">
+    <!-- <button type="submit" class="btn btn-primary">Usar</button> -->
 
 </form>
 
+
    <?php
+
+   $total=$bruto-$desconto;
    if (isset($carrinho)) {
             echo "O Total e da sua compra em reais é: ". $total;
             $pedido["PrecoTotal"]=$total;
