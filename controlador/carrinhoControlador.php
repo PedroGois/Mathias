@@ -6,12 +6,17 @@ require "./modelo/cupomModelo.php";
 /** anon */
 function index(){
 	if (ehPost()) {
-		$NomeCupom = $_POST["cupom"];
+		extract($_POST);
+		$NomeCupom = $cupom;
 		$desconto = pegarDesconto($NomeCupom);
 		$dados["desconto"] = $desconto;
+			if (empty($desconto)) {
+			echo "desconto inexistente";
+		}
 		
-		$total = $total - $desconto;
 	}
+      
+
 
 	if (!empty($_SESSION["carrinho"])) {
 		$carrinho = $_SESSION["carrinho"];
@@ -21,6 +26,7 @@ function index(){
 	}else{
 		exibir("produto/carrinho");
 	}
+
 }
 
 /** anon */

@@ -7,6 +7,7 @@
             <th>NOME</th> 
             <th>PREÇO</th>
             <th>DELETE</th>
+            <th>QUANTIDADE</th>
         </tr>
     </thead>
     <?php 
@@ -23,6 +24,7 @@
         $bruto=$bruto + $produto['Preco'];
         ?>
         <td><a href="./carrinho/deletar/<?=$produto['CodProduto']?>" class="btn btn-danger">del</a></td>
+        <TD>
     </tr>
     <?php 
         }
@@ -34,23 +36,31 @@
 </table>
     <br><br>
 
-<form method="POST" action="">
+<form method="POST" action="./carrinho">
     
     <div class="form-group">
         <label for="cupom">Cupom</label>
-        <input id="cupom" class="form-control" type="text" name="copum">
+        <input id="cupom" class="form-control" type="text" name="cupom">
     </div>
 
-    <input type="submit" name="cupom">
-    <!-- <button type="submit" class="btn btn-primary">Usar</button> -->
+    <button type="submit" class="btn btn-primary">Usar</button>
 
 </form>
 
 
    <?php
+    
+    if (isset($carrinho)) {
+    $total = $bruto;
+   
+   if (!empty($desconto)) {
+    // echo "desconto setado";
+    $desc = $bruto * ($desconto["Desconto"] / 100);
+    $total = $bruto - $desc;
+   }
 
-   $total=$bruto-$desconto;
-   if (isset($carrinho)) {
+
+   
             echo "O Total e da sua compra em reais é: ". $total;
             $pedido["PrecoTotal"]=$total;
     ?>
